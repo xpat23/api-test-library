@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Xpat\ApiTest\Example;
+namespace ApiTest\TestCase;
 
 use Xpat\ApiTest\Attribute\Test;
 use Xpat\ApiTest\Expectation\FieldEqualityExpectation;
@@ -10,26 +10,14 @@ use Xpat\ApiTest\Expectation\StatusCodeExpectation;
 use Xpat\ApiTest\Test\ApiTest;
 use Xpat\ApiTest\Test\ApiTestInterface;
 use Xpat\ApiTest\Test\TestCase;
-use Xpat\Http\Request\Get;
-use Xpat\Http\Request\Headers;
-use Xpat\Http\Request\Url;
 
-final class CategoryTest extends TestCase
+readonly class CategoryTest extends TestCase
 {
     #[Test]
     public function expenseCategories(): ApiTestInterface
     {
         return new ApiTest(
-            new Get(
-                new Url(
-                    'http://164.92.239.228',
-                    8080,
-                    '/expense-categories'
-                ),
-                new Headers([
-                    'Accept' => 'application/json',
-                ])
-            ),
+            $this->requestFactory->get('/expense-categories'),
             [
                 new StatusCodeExpectation(200),
                 new FieldEqualityExpectation(
@@ -44,16 +32,7 @@ final class CategoryTest extends TestCase
     public function someTest(): ApiTestInterface
     {
         return new ApiTest(
-            new Get(
-                new Url(
-                    'http://164.92.239.228',
-                    8080,
-                    '/expense-categories'
-                ),
-                new Headers([
-                    'Accept' => 'application/json',
-                ])
-            ),
+            $this->requestFactory->get('/expense-categories'),
             [
                 new StatusCodeExpectation(200),
                 new FieldEqualityExpectation(

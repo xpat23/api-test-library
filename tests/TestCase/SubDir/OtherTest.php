@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Xpat\ApiTest\Example\SubDir;
+namespace ApiTest\TestCase\SubDir;
 
 use Xpat\ApiTest\Attribute\Test;
 use Xpat\ApiTest\Expectation\CallbackExpectation;
@@ -17,22 +17,13 @@ use Xpat\Http\Request\Headers;
 use Xpat\Http\Request\Url;
 use Xpat\Http\Response\Response;
 
-final class OtherTest extends TestCase
+readonly class OtherTest extends TestCase
 {
     #[Test]
     public function testOther(): ApiTestInterface
     {
         return new ApiTest(
-            new Get(
-                new Url(
-                    'https://fakestoreapi.com',
-                    443,
-                    '/products/1'
-                ),
-                new Headers([
-                    'Accept' => 'application/json',
-                ])
-            ),
+            $this->requestFactory->get('/products/1'),
             [
                 new StatusCodeExpectation(200),
                 new FieldEqualityExpectation(
@@ -51,16 +42,7 @@ final class OtherTest extends TestCase
     public function testOther2(): ApiTestInterface
     {
         return new ApiTest(
-            new Get(
-                new Url(
-                    'https://fakestoreapi.com',
-                    443,
-                    '/products'
-                ),
-                new Headers([
-                    'Accept' => 'application/json',
-                ])
-            ),
+            $this->requestFactory->get('/products'),
             [
                 new StatusCodeExpectation(200),
                 new FieldEqualityExpectation(
