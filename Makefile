@@ -15,3 +15,6 @@ install:
 
 ps:
 	docker-compose ps
+
+env:
+	cp .env.dist .env

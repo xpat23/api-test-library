@@ -1,6 +1,6 @@
 {
-  "name": "xpat23/http",
-  "description": "PHP tool for testing json api endpoints.",
+  "name": "xpat/api-test-library",
+  "description": "PHP library for testing json api endpoints.",
   "type": "library",
   "license": "MIT",
   "authors": [
@@ -12,15 +12,11 @@
   "require": {
     "php": ">=8.3",
     "ext-curl": "*",
-    "xpat/xpat-http": "v1.0.1",
-    "symfony/dependency-injection": "^7.2",
-    "symfony/config": "^7.2",
-    "symfony/yaml": "^7.2"
+    "xpat/xpat-http": "v1.0.1"
   },
   "autoload": {
     "psr-4": {
-      "Xpat\\ApiTest\\": "src/",
-      "ApiTest\\": "tests/"
+      "Xpat\\ApiTest\\": "src/"
     }
   },
   "require-dev": {
