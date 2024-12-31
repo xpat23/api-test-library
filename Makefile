@@ -13,6 +13,9 @@ ssh:
 install:
 	docker-compose run --rm --no-deps php composer install
 
+composer-dump:
+	docker-compose run --rm --no-deps php composer dump-autoload
+
 ps:
 	docker-compose ps
 
