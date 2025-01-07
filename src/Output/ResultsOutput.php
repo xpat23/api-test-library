@@ -17,6 +17,7 @@ readonly class ResultsOutput
         $errorsAmount = 0;
         $passedAmount = 0;
         $testLocation = '';
+        $time = microtime(true);
 
         foreach ($this->results->all() as $result) {
             if ($result->testLocation() !== $testLocation) {
@@ -58,6 +59,10 @@ readonly class ResultsOutput
         echo sprintf("\e[1;37;35m ...... \e[0m \e[0;36m %s \e[0m\n", 'Total: ' . $passedAmount + $errorsAmount);
         echo sprintf("\e[1;37;35m ...... \e[0m \e[0;36m %s \e[0m\n", 'Passed: ' . $passedAmount);
         echo sprintf("\e[1;37;35m ...... \e[0m \e[0;36m %s \e[0m\n", 'Failed: ' . $errorsAmount);
+        echo sprintf(
+            "\e[1;37;35m ...... \e[0m \e[0;36m %s \e[0m\n",
+            'Time: ' . round(microtime(true) - $time, 3) . 's'
+        );
 
         if ($errorsAmount > 0) {
             echo "\e[1;37;31m ...... \e[0m \e[1;37;31m Tests failed \e[0m\n";
