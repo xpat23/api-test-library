@@ -58,7 +58,7 @@ readonly class ExecutedTestingResult implements TestingResult
 
     public function testLocation(): string
     {
-        return $this->testMethod->class() . '::' . $this->testMethod->method();
+        return $this->testMethod->file() . '::' . $this->testMethod->method();
     }
 
     public function exception(): ?Throwable

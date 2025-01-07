@@ -20,15 +20,12 @@ readonly class ApiTestMethods implements Methods
     public function all(): iterable
     {
         foreach ($this->decorated->all() as $method) {
-            $methodName = $method->method();
-            $className = $method->class();
-
             if ($method->returnType() !== ApiTestInterface::class) {
                 throw new RuntimeException(
                     sprintf(
                         'Test method must return an instance of ApiTestInterface. Method %s::%s must return an instance of %s',
-                        $className,
-                        $methodName,
+                        $method->file(),
+                        $method->method(),
                         ApiTestInterface::class
                     )
                 );

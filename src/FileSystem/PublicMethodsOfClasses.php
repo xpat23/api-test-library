@@ -27,7 +27,8 @@ readonly class PublicMethodsOfClasses implements Methods
                         static fn($attribute) => $attribute->getName(),
                         $method->getAttributes()
                     ),
-                    $method->getReturnType()?->getName() ?? 'mixed'
+                    $method->getReturnType()?->getName() ?? 'mixed',
+                    $method->getFileName()
                 );
             }
         }

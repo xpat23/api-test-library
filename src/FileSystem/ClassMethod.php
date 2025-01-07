@@ -16,7 +16,8 @@ readonly class ClassMethod
         private string $class,
         private string $method,
         private array $attributes,
-        private string $returnType
+        private string $returnType,
+        private string $file
     ) {
     }
 
@@ -43,5 +44,10 @@ readonly class ClassMethod
     public function returnType(): string
     {
         return $this->returnType;
+    }
+
+    public function file(): string
+    {
+        return $this->file;
     }
 }
