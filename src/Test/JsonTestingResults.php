@@ -15,7 +15,7 @@ readonly class JsonTestingResults
         $arrayResult = [];
 
         foreach ($this->results->all() as $result) {
-            $arrayResult[] = [
+            $itemResult = [
                 'testLocation' => $result->testLocation(),
                 'exception' => $result->exception() ? $result->exception()->getMessage() : '',
                 'response' => $result->response() ? $result->response()->content() : '',
@@ -23,15 +23,17 @@ readonly class JsonTestingResults
             ];
 
             foreach ($result->expectationResults() as $expectation) {
-                $arrayResult['expectationResults'][] = [
+                $itemResult['expectationResults'][] = [
                     'satisfied' => $expectation->satisfied(),
                     'label' => $expectation->label(),
                     'message' => $expectation->message(),
                 ];
             }
+
+            $arrayResult[] = $itemResult;
         }
 
-        return json_encode(array_values($arrayResult), JSON_THROW_ON_ERROR);
+        return json_encode($arrayResult, JSON_THROW_ON_ERROR | JSON_PRETTY_PRINT);
     }
 
 }
