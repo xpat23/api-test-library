@@ -4,7 +4,7 @@
     "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
     "This file is @generated automatically"
   ],
-  "content-hash": "4033021bd08fbe1703dbd6b7fd23b25a",
+  "content-hash": "607e0e0c9609057beaf7f63685d48479",
   "packages": [
     {
       "name": "psr/container",
@@ -61,16 +61,16 @@
     },
     {
       "name": "xpat/xpat-http",
-      "version": "v1.0.1",
+      "version": "v1.0.2",
       "source": {
         "type": "git",
         "url": "https://github.com/xpat23/xpat-http.git",
-        "reference": "d34a2593716a59c2ac728e5c5350233a981f80b1"
+        "reference": "913caaf1649da10b78f2e78d43a13a9879bfc0e4"
       },
       "dist": {
         "type": "zip",
-        "url": "https://api.github.com/repos/xpat23/xpat-http/zipball/d34a2593716a59c2ac728e5c5350233a981f80b1",
-        "reference": "d34a2593716a59c2ac728e5c5350233a981f80b1",
+        "url": "https://api.github.com/repos/xpat23/xpat-http/zipball/913caaf1649da10b78f2e78d43a13a9879bfc0e4",
+        "reference": "913caaf1649da10b78f2e78d43a13a9879bfc0e4",
         "shasum": ""
       },
       "require": {
@@ -99,9 +99,9 @@
       "description": "Http requests library.",
       "support": {
         "issues": "https://github.com/xpat23/xpat-http/issues",
-        "source": "https://github.com/xpat23/xpat-http/tree/v1.0.1"
+        "source": "https://github.com/xpat23/xpat-http/tree/v1.0.2"
       },
-      "time": "2024-12-14T03:34:29+00:00"
+      "time": "2025-01-10T11:09:25+00:00"
     }
   ],
   "packages-dev": [
